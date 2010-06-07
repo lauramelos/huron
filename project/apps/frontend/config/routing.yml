@@ -1,0 +1,29 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+# default rules
+homepage:
+  url:   /
+  param: { module: default, action: index }
+
+#Rutas de autenticacion
+sf_guard_signin:
+  url:   /login
+  param: { module: sfMooDooAuth, action: signin }
+
+sf_guard_signout:
+  url:   /logout
+  param: { module: sfMooDooAuth, action: signout }
+
+sf_guard_password:
+  url:   /request_password
+  param: { module: sfMooDooAuth, action: password }
+
+# generic rules
+# please, remove them by adding more specific rules
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*

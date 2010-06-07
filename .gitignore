@@ -1,0 +1,9 @@
+project/cache/*
+project/log/*
+project/config/databases.yml
+
+#uploads
+project/web/uploads/*
+
+#mooDooGallery
+project/web/images/mooDooGallery/*
