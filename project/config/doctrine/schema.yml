@@ -9,19 +9,91 @@ Profile:
     - Timestampable
   tableName:                    profile
   columns:
-    id:                         {type: integer, primary: true, autoincrement: true}
+    id:                         { type: integer, primary: true, autoincrement: true}
     sf_guard_user_id:           integer(4)
-    membership_number:          {type: integer}
-    first_name:                 {type: string(100), notnull: true}
-    last_name:                  {type: string(100), notnull: true}
-    birth_date:                 {type: date}
-    documment_type:             {type: enum, values: [ dni, le ], default: dni}
-    documment_number:           {type: string(15) }
-    phone:                      {type: string(40)}
-    movil:                      {type: string(40)}
-    email:                      {type: string(60)}
-    addres:                     {type: string(100)}
-    addres_2:                   {type: string(100)}
-    locality_id:                {type: integer}
+    membership_number:          { type: integer}
+    first_name:                 { type: string(100), notnull: true}
+    last_name:                  { type: string(100), notnull: true}
+    birth_date:                 { type: date}
+    documment_type:             { type: enum, values: [ dni, le ], default: dni}
+    documment_number:           { type: string(15) }
+    phone:                      { type: string(40)}
+    movil:                      { type: string(40)}
+    email:                      { type: string(60)}
+    address:                    { type: string(100)}
+    address_2:                  { type: string(100)}
+    locality_id:                { type: integer}
   relations:
-    sfGuardUser:                {local: sf_guard_user_id, foreign: id, foreignType: one, onDelete: CASCADE}
+    sfGuardUser:                { local: sf_guard_user_id, foreign: id, foreignType: one, onDelete: CASCADE}
+
+Client:
+  actAs:
+    - Timestampable
+  tableName:                    client
+  columns:
+    id:                         { type: integer, primary: true, autoincrement: true }
+    name:                       { type: string(100), notnull: true }
+    address:                    { type: string(100) }
+    phone:                      { type: string(40) }
+    cuit:                       { type: string(13) }
+    logo:                       { type: string(255) }
+Contact:
+  actAs:
+    - Timestampable
+  tableName:                    contact
+  columns:
+    id:                         { type: integer, primary: true, autoincrement: true }
+    client_id:                  integer(4)
+    first_name:                 { type: string(100), notnull: true }
+    last_name:                  { type: string(100), notnull: true }
+    phone:                      { type: string(40) }
+    movil:                      { type: string(40) }
+    email:                      { type: string(60) }
+    address:                    { type: string(100) }
+    position:                   { type: string(40) }
+  relations:
+    client:                     { class: Page, local: category_id, foreign: page_id, refClass: PageCategory, onDelete: CASCADE }
+
+Proposal:
+  actAs:
+    - Timestampable
+  tableName:                    proposal
+  columns:
+    id:                         { type: integer, primary: true, autoincrement: true }
+    date:                       { type: timestamp }
+    description:                { type: clob }
+    number:                     { type: integer }
+    comments:                   { type: string(1000) }
+    currency:                   { type: string(20) }
+    delivery:                   { type: string(255) }
+    bid_validity:               { type: string(255) }
+    payment_term:               { type: string(255) }
+Service:
+  actAs:
+    - Timestampable
+  tableName:                    service
+  columns:
+    id:                         { type: integer, primary: true, autoincrement: true}
+    description:                { type: clob }
+    unit_cost:                  { type: decimal(10) }
+    measurement_unit:           { type: string(20) }
+    type:                       { type: enum, values: ['labor', 'replacement'], default: 'labor' }
+Item:
+  actAs:
+    - Timestampable
+  tableName:                    item
+  columns:
+    id:                         { type: integer, primary: true, autoincrement: true}
+    amount:                     { type: integer }
+    unit_cost:                  { type: decimal(10) }
+    comments:                   { type: string(1000) }
+Config:
+  actAs:
+    - Timestampable
+  tableName:                    config
+  columns:
+    id:                         { type: integer, primary: true, autoincrement: true }
+    name:                       { type: string(20) }
+    value:                      { type: string(255) }
+    description:                { type: clob }
+    
