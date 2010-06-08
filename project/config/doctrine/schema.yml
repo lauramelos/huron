@@ -37,13 +37,16 @@ Client:
     phone:                      { type: string(40) }
     cuit:                       { type: string(13) }
     logo:                       { type: string(255) }
+  relations:
+    Contacts:                   { class: Contact, local: id, foreign: client_id, type: many }
+    Proposals:                  { class: Proposal, local: id, foreign: client_id, type: many }
 Contact:
   actAs:
     - Timestampable
   tableName:                    contact
   columns:
     id:                         { type: integer, primary: true, autoincrement: true }
-    client_id:                  integer(4)
+    client_id:                  integer
     first_name:                 { type: string(100), notnull: true }
     last_name:                  { type: string(100), notnull: true }
     phone:                      { type: string(40) }
@@ -52,7 +55,7 @@ Contact:
     address:                    { type: string(100) }
     position:                   { type: string(40) }
   relations:
-    client:                     { class: Page, local: category_id, foreign: page_id, refClass: PageCategory, onDelete: CASCADE }
+    Client:                     { local: client_id, foreign: id }
 
 Proposal:
   actAs:
@@ -60,6 +63,7 @@ Proposal:
   tableName:                    proposal
   columns:
     id:                         { type: integer, primary: true, autoincrement: true }
+    client_id:                  integer
     date:                       { type: timestamp }
     description:                { type: clob }
     number:                     { type: integer }
@@ -68,6 +72,10 @@ Proposal:
     delivery:                   { type: string(255) }
     bid_validity:               { type: string(255) }
     payment_term:               { type: string(255) }
+  relations:
+    Client:                     { local: client_id, foreign: id }
+    Items:                      { class: Item, local: id, foreign: proposal_id, type: many }
+
 Service:
   actAs:
     - Timestampable
@@ -78,15 +86,30 @@ Service:
     unit_cost:                  { type: decimal(10) }
     measurement_unit:           { type: string(20) }
     type:                       { type: enum, values: ['labor', 'replacement'], default: 'labor' }
+  relations:
+    Items:                      { class: Item, local: item_id, foreign: service_id, refClass: ServiceItem }
+
+ServiceItem:
+  tableName:                    service_item
+  columns:
+    service_id:                 { type: integer, primary: true }
+    item_id:                    { type: integer, primary: true }
+
 Item:
   actAs:
     - Timestampable
   tableName:                    item
   columns:
     id:                         { type: integer, primary: true, autoincrement: true}
+    proposal_id:                integer
+    service_id:                 integer
     amount:                     { type: integer }
     unit_cost:                  { type: decimal(10) }
     comments:                   { type: string(1000) }
+  relations:
+    Proposal:                   { local: proposal_id, foreign: id }
+    Services:                   { class: Service, local: service_id, foreign: item_id, refClass: ServiceItem }
+
 Config:
   actAs:
     - Timestampable

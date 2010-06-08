@@ -16,8 +16,8 @@
  * @property string $phone
  * @property string $movil
  * @property string $email
- * @property string $addres
- * @property string $addres_2
+ * @property string $address
+ * @property string $address_2
  * @property integer $locality_id
  * @property sfGuardUser $sfGuardUser
  * 
@@ -32,8 +32,8 @@
  * @method string      getPhone()             Returns the current record's "phone" value
  * @method string      getMovil()             Returns the current record's "movil" value
  * @method string      getEmail()             Returns the current record's "email" value
- * @method string      getAddres()            Returns the current record's "addres" value
- * @method string      getAddres2()           Returns the current record's "addres_2" value
+ * @method string      getAddress()           Returns the current record's "address" value
+ * @method string      getAddress2()          Returns the current record's "address_2" value
  * @method integer     getLocalityId()        Returns the current record's "locality_id" value
  * @method sfGuardUser getSfGuardUser()       Returns the current record's "sfGuardUser" value
  * @method Profile     setId()                Sets the current record's "id" value
@@ -47,8 +47,8 @@
  * @method Profile     setPhone()             Sets the current record's "phone" value
  * @method Profile     setMovil()             Sets the current record's "movil" value
  * @method Profile     setEmail()             Sets the current record's "email" value
- * @method Profile     setAddres()            Sets the current record's "addres" value
- * @method Profile     setAddres2()           Sets the current record's "addres_2" value
+ * @method Profile     setAddress()           Sets the current record's "address" value
+ * @method Profile     setAddress2()          Sets the current record's "address_2" value
  * @method Profile     setLocalityId()        Sets the current record's "locality_id" value
  * @method Profile     setSfGuardUser()       Sets the current record's "sfGuardUser" value
  * 
@@ -112,11 +112,11 @@ abstract class BaseProfile extends sfDoctrineRecord
              'type' => 'string',
              'length' => 60,
              ));
-        $this->hasColumn('addres', 'string', 100, array(
+        $this->hasColumn('address', 'string', 100, array(
              'type' => 'string',
              'length' => 100,
              ));
-        $this->hasColumn('addres_2', 'string', 100, array(
+        $this->hasColumn('address_2', 'string', 100, array(
              'type' => 'string',
              'length' => 100,
              ));
