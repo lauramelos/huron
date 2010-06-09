@@ -16,11 +16,11 @@
         <img id="logo" src="/images/logo.png" />
         <div id="shine"></div>
 
-        <?php include_partial('sfMooDooStyleGuide/menu') ?>
-        <?php include_partial('sfMooDooStyleGuide/mini-panel') ?>
+        <?php include_partial('global/menu') ?>
+        <?php include_partial('global/mini-panel') ?>
       </section>
        <?php echo $sf_content ?>
-       <?php include_partial('sfMooDooStyleGuide/footer') ?>
+       <?php include_partial('global/footer') ?>
 
     </div>
   </body>

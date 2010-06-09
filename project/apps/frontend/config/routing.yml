@@ -1,10 +1,48 @@
+client:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Client
+    module:               client
+    prefix_path:          /client
+    column:               id
+    with_wildcard_routes: true
+
+config:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Config
+    module:               config
+    prefix_path:          /config
+    column:               id
+    with_wildcard_routes: true
+
+service:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Service
+    module:               service
+    prefix_path:          /service
+    column:               id
+    with_wildcard_routes: true
+
+proposal:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Proposal
+    module:               proposal
+    prefix_path:          /proposal
+    column:               id
+    with_wildcard_routes: true
+
+
+
 # You can find more information about this file on the symfony website:
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 
 # default rules
 homepage:
   url:   /
-  param: { module: default, action: index }
+  param: { module: proposal, action: index }
 
 #Rutas de autenticacion
 sf_guard_signin:

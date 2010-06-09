@@ -15,3 +15,9 @@
 #     password: changeme
 #     name:     Kris Wallsmith
 #     email:    kris.wallsmith@symfony-project.com
+sfGuardUser:
+  sfGuardUser_1:
+    username: admin
+    password: monoloco
+    is_active: true
+    is_super_admin: true
