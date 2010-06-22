@@ -12,6 +12,110 @@
         <source>Add new</source>
         <target>Agregar nueva</target>
       </trans-unit>
+      <trans-unit id="3">
+        <source>Proposal List</source>
+        <target>Listado de Propuestas</target>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>Detail</source>
+        <target>Detalle</target>
+      </trans-unit>
+      <trans-unit id="5">
+        <source>Comments</source>
+        <target>Comentarios</target>
+      </trans-unit>
+      <trans-unit id="6">
+        <source>Client</source>
+        <target>Cliente</target>
+      </trans-unit>
+      <trans-unit id="7">
+        <source>Clients</source>
+        <target>Clientes</target>
+      </trans-unit>
+      <trans-unit id="8">
+        <source>Currency</source>
+        <target>Moneda</target>
+      </trans-unit>
+      <trans-unit id="9">
+        <source>Delivery</source>
+        <target>Plazo de entrega</target>
+      </trans-unit>
+      <trans-unit id="10">
+        <source>Bid validity</source>
+        <target>Validez de la oferta</target>
+      </trans-unit>
+      <trans-unit id="11">
+        <source>Payment term</source>
+        <target>Condición de pago</target>
+      </trans-unit>
+      <trans-unit id="12">
+        <source>New Proposal</source>
+        <target>Propuesta Nueva</target>
+      </trans-unit>
+      <trans-unit id="13">
+        <source>Password (again)</source>
+        <target>Contraseña (nuevamente)</target>
+      </trans-unit>
+      <trans-unit id="14">
+        <source>Birth date</source>
+        <target>Fecha de Nacimiento</target>
+      </trans-unit>
+      <trans-unit id="15">
+        <source>Documment type</source>
+        <target>Tipo de documento</target>
+      </trans-unit>
+      <trans-unit id="16">
+        <source>Documment number</source>
+        <target>Número de documento</target>
+      </trans-unit>
+      <trans-unit id="17">
+        <source>Phone</source>
+        <target>Teléfono</target>
+      </trans-unit>
+      <trans-unit id="18">
+        <source>Movil</source>
+        <target>Celular</target>
+      </trans-unit>
+      <trans-unit id="19">
+        <source>Address</source>
+        <target>Dirección</target>
+      </trans-unit>
+      <trans-unit id="19">
+        <source>Address 2</source>
+        <target>Dirección 2</target>
+      </trans-unit>
+      <trans-unit id="20">
+        <source>Locality</source>
+        <target>Localidad</target>
+      </trans-unit>
+      <trans-unit id="21">
+        <source>Editing User </source>
+        <target>Editando Usuario </target>
+      </trans-unit>
+      <trans-unit id="22">
+        <source>New Proposal</source>
+        <target>Propuesta Nueva</target>
+      </trans-unit>
+      <trans-unit id="23">
+        <source>New Client</source>
+        <target>Cliente Nuevo</target>
+      </trans-unit>
+      <trans-unit id="24">
+        <source>Client List</source>
+        <target>Listado de Clientes</target>
+      </trans-unit>
+      <trans-unit id="24">
+        <source>New Service</source>
+        <target>Servicio Nuevo</target>
+      </trans-unit>
+      <trans-unit id="25">
+        <source>labor</source>
+        <target>Mano de obra</target>
+      </trans-unit>
+      <trans-unit id="26">
+        <source>replacement</source>
+        <target>Repuestos</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

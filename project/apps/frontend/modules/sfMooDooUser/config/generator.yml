@@ -1,0 +1,31 @@
+generator:
+  class:                              sfDoctrineGenerator
+  param:
+    model_class:                      sfGuardUser
+    theme:                            mooDoo.2
+    non_verbose_templates:            true
+    with_show:                        false
+    singular:                         ~
+    plural:                           ~
+    route_prefix:                     sf_moodoo_user
+    with_doctrine_route:              true
+
+    config:
+      fields:
+        password_again:               { label: "Password (again)" }
+
+      list:
+        title:                        User list
+        display:                      [=username, created_at, updated_at, last_login]
+
+      form:
+        class:                        sfGuardUserAdminForm
+        display:
+          "NONE":                     [username, password, password_again, Profile]
+          "Permissions and groups":   [is_active, is_super_admin, groups_list, permissions_list]
+
+      edit:
+        title:                        Editando Usuario "%%username%%"
+
+      new:
+        title:                        New User

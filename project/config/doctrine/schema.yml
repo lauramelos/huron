@@ -38,24 +38,18 @@ Client:
     cuit:                       { type: string(13) }
     logo:                       { type: string(255) }
   relations:
-    Contacts:                   { class: Contact, local: id, foreign: client_id, type: many }
+    Contacts:                   { class: Profile, local: profile_id, foreign: client_id, refClass: ClientContact }
     Proposals:                  { class: Proposal, local: id, foreign: client_id, type: many }
-Contact:
+
+ClientContact:
   actAs:
     - Timestampable
-  tableName:                    contact
+  tableName:                    client_contact
   columns:
-    id:                         { type: integer, primary: true, autoincrement: true }
-    client_id:                  integer
-    first_name:                 { type: string(100), notnull: true }
-    last_name:                  { type: string(100), notnull: true }
-    phone:                      { type: string(40) }
-    movil:                      { type: string(40) }
-    email:                      { type: string(60) }
-    address:                    { type: string(100) }
+    profile_id:                 { type: integer, primary: true }
+    client_id:                  { type: integer, primary: true }
     position:                   { type: string(40) }
-  relations:
-    Client:                     { local: client_id, foreign: id }
+
 
 Proposal:
   actAs:

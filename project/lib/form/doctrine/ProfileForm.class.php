@@ -12,5 +12,17 @@ class ProfileForm extends BaseProfileForm
 {
   public function configure()
   {
+    unset($this['created_at'], $this['updated_at'], $this['membership_number']);
+    $range  = range(date('Y'), date('Y')-100);
+    $years = array_combine($range,$range);
+    $this->widgetSchema['birth_date'] = new sfWidgetFormDate(
+      array(
+        'format'=> '%day%/%month%/%year%',
+        'years' => $years
+      ),
+      array(
+        'class' => 'input_date_separate'
+      )
+    );
   }
 }

@@ -12,5 +12,17 @@ class ProposalForm extends BaseProposalForm
 {
   public function configure()
   {
+    unset($this['created_at'], $this['updated_at']);
+    $range  = range(date('Y'), date('Y')-100);
+    $years = array_combine($range,$range);
+    $this->widgetSchema['date'] = new sfWidgetFormDate(
+      array(
+        'format'=> '%day%/%month%/%year%',
+        'years' => $years
+      ),
+      array(
+        'class' => 'input_date_separate'
+      )
+    );
   }
 }

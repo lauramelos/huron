@@ -31,6 +31,7 @@ abstract class BaseProfileForm extends BaseFormDoctrine
       'locality_id'       => new sfWidgetFormInputText(),
       'created_at'        => new sfWidgetFormDateTime(),
       'updated_at'        => new sfWidgetFormDateTime(),
+      'client_list'       => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Client')),
     ));
 
     $this->setValidators(array(
@@ -50,6 +51,7 @@ abstract class BaseProfileForm extends BaseFormDoctrine
       'locality_id'       => new sfValidatorInteger(array('required' => false)),
       'created_at'        => new sfValidatorDateTime(),
       'updated_at'        => new sfValidatorDateTime(),
+      'client_list'       => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Client', 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('profile[%s]');
@@ -64,6 +66,62 @@ abstract class BaseProfileForm extends BaseFormDoctrine
   public function getModelName()
   {
     return 'Profile';
+  }
+
+  public function updateDefaultsFromObject()
+  {
+    parent::updateDefaultsFromObject();
+
+    if (isset($this->widgetSchema['client_list']))
+    {
+      $this->setDefault('client_list', $this->object->Client->getPrimaryKeys());
+    }
+
+  }
+
+  protected function doSave($con = null)
+  {
+    $this->saveClientList($con);
+
+    parent::doSave($con);
+  }
+
+  public function saveClientList($con = null)
+  {
+    if (!$this->isValid())
+    {
+      throw $this->getErrorSchema();
+    }
+
+    if (!isset($this->widgetSchema['client_list']))
+    {
+      // somebody has unset this widget
+      return;
+    }
+
+    if (null === $con)
+    {
+      $con = $this->getConnection();
+    }
+
+    $existing = $this->object->Client->getPrimaryKeys();
+    $values = $this->getValue('client_list');
+    if (!is_array($values))
+    {
+      $values = array();
+    }
+
+    $unlink = array_diff($existing, $values);
+    if (count($unlink))
+    {
+      $this->object->unlink('Client', array_values($unlink));
+    }
+
+    $link = array_diff($values, $existing);
+    if (count($link))
+    {
+      $this->object->link('Client', array_values($link));
+    }
   }
 
 }

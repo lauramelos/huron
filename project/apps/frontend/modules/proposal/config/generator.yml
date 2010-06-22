@@ -13,8 +13,14 @@ generator:
 
     config:
       actions: ~
-      fields:  ~
-      list:    ~
+      list:
+        display:                [ number, date, client, description]
+        actions:
+          _new:                 { label: '&nbsp;', atts: {title: Add page } }
+        batch_actions:
+          delete:
+        fields:
+          date:                 { date_format :'dd-MM-yyyy' }
       filter:  ~
       form:    ~
       edit:    ~
