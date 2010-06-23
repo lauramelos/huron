@@ -72,8 +72,7 @@ abstract class BaseService extends sfDoctrineRecord
     {
         parent::setUp();
         $this->hasMany('Item as Items', array(
-             'refClass' => 'ServiceItem',
-             'local' => 'item_id',
+             'local' => 'id',
              'foreign' => 'service_id'));
 
         $timestampable0 = new Doctrine_Template_Timestampable(array(

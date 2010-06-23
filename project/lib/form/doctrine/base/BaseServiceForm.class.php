@@ -22,7 +22,6 @@ abstract class BaseServiceForm extends BaseFormDoctrine
       'type'             => new sfWidgetFormChoice(array('choices' => array('labor' => 'labor', 'replacement' => 'replacement'))),
       'created_at'       => new sfWidgetFormDateTime(),
       'updated_at'       => new sfWidgetFormDateTime(),
-      'items_list'       => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Item')),
     ));
 
     $this->setValidators(array(
@@ -33,7 +32,6 @@ abstract class BaseServiceForm extends BaseFormDoctrine
       'type'             => new sfValidatorChoice(array('choices' => array(0 => 'labor', 1 => 'replacement'), 'required' => false)),
       'created_at'       => new sfValidatorDateTime(),
       'updated_at'       => new sfValidatorDateTime(),
-      'items_list'       => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Item', 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('service[%s]');
@@ -48,62 +46,6 @@ abstract class BaseServiceForm extends BaseFormDoctrine
   public function getModelName()
   {
     return 'Service';
-  }
-
-  public function updateDefaultsFromObject()
-  {
-    parent::updateDefaultsFromObject();
-
-    if (isset($this->widgetSchema['items_list']))
-    {
-      $this->setDefault('items_list', $this->object->Items->getPrimaryKeys());
-    }
-
-  }
-
-  protected function doSave($con = null)
-  {
-    $this->saveItemsList($con);
-
-    parent::doSave($con);
-  }
-
-  public function saveItemsList($con = null)
-  {
-    if (!$this->isValid())
-    {
-      throw $this->getErrorSchema();
-    }
-
-    if (!isset($this->widgetSchema['items_list']))
-    {
-      // somebody has unset this widget
-      return;
-    }
-
-    if (null === $con)
-    {
-      $con = $this->getConnection();
-    }
-
-    $existing = $this->object->Items->getPrimaryKeys();
-    $values = $this->getValue('items_list');
-    if (!is_array($values))
-    {
-      $values = array();
-    }
-
-    $unlink = array_diff($existing, $values);
-    if (count($unlink))
-    {
-      $this->object->unlink('Items', array_values($unlink));
-    }
-
-    $link = array_diff($values, $existing);
-    if (count($link))
-    {
-      $this->object->link('Items', array_values($link));
-    }
   }
 
 }

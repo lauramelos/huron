@@ -38,7 +38,7 @@ Client:
     cuit:                       { type: string(13) }
     logo:                       { type: string(255) }
   relations:
-    Contacts:                   { class: Profile, local: profile_id, foreign: client_id, refClass: ClientContact }
+    Contacts:                   { class: Profile, local: profile_id, foreign: client_id, refClass: ClientContact, type: many  }
     Proposals:                  { class: Proposal, local: id, foreign: client_id, type: many }
 
 ClientContact:
@@ -46,10 +46,9 @@ ClientContact:
     - Timestampable
   tableName:                    client_contact
   columns:
-    profile_id:                 { type: integer, primary: true }
+    profile_id:                 { type: integer, primary: true, unique: true }
     client_id:                  { type: integer, primary: true }
     position:                   { type: string(40) }
-
 
 Proposal:
   actAs:
@@ -81,13 +80,8 @@ Service:
     measurement_unit:           { type: string(20) }
     type:                       { type: enum, values: ['labor', 'replacement'], default: 'labor' }
   relations:
-    Items:                      { class: Item, local: item_id, foreign: service_id, refClass: ServiceItem }
+    Items:                      { class: Item, local: id, foreign: service_id, type: many }
 
-ServiceItem:
-  tableName:                    service_item
-  columns:
-    service_id:                 { type: integer, primary: true }
-    item_id:                    { type: integer, primary: true }
 
 Item:
   actAs:
@@ -102,7 +96,7 @@ Item:
     comments:                   { type: string(1000) }
   relations:
     Proposal:                   { local: proposal_id, foreign: id }
-    Services:                   { class: Service, local: service_id, foreign: item_id, refClass: ServiceItem }
+    Services:                   { local: service_id, foreign: id }
 
 Config:
   actAs:

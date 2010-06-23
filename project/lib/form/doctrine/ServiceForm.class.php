@@ -12,6 +12,6 @@ class ServiceForm extends BaseServiceForm
 {
   public function configure()
   {
-    unset($this['created_at'], $this['updated_at']);
+    unset($this['created_at'], $this['updated_at'], $this['items_list']);
   }
 }

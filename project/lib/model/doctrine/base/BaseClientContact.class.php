@@ -29,6 +29,7 @@ abstract class BaseClientContact extends sfDoctrineRecord
         $this->hasColumn('profile_id', 'integer', null, array(
              'type' => 'integer',
              'primary' => true,
+             'unique' => true,
              ));
         $this->hasColumn('client_id', 'integer', null, array(
              'type' => 'integer',

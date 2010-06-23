@@ -12,24 +12,24 @@
  * @property decimal $unit_cost
  * @property string $comments
  * @property Proposal $Proposal
- * @property Doctrine_Collection $Services
+ * @property Service $Service
  * 
- * @method integer             getId()          Returns the current record's "id" value
- * @method integer             getProposalId()  Returns the current record's "proposal_id" value
- * @method integer             getServiceId()   Returns the current record's "service_id" value
- * @method integer             getAmount()      Returns the current record's "amount" value
- * @method decimal             getUnitCost()    Returns the current record's "unit_cost" value
- * @method string              getComments()    Returns the current record's "comments" value
- * @method Proposal            getProposal()    Returns the current record's "Proposal" value
- * @method Doctrine_Collection getServices()    Returns the current record's "Services" collection
- * @method Item                setId()          Sets the current record's "id" value
- * @method Item                setProposalId()  Sets the current record's "proposal_id" value
- * @method Item                setServiceId()   Sets the current record's "service_id" value
- * @method Item                setAmount()      Sets the current record's "amount" value
- * @method Item                setUnitCost()    Sets the current record's "unit_cost" value
- * @method Item                setComments()    Sets the current record's "comments" value
- * @method Item                setProposal()    Sets the current record's "Proposal" value
- * @method Item                setServices()    Sets the current record's "Services" collection
+ * @method integer  getId()          Returns the current record's "id" value
+ * @method integer  getProposalId()  Returns the current record's "proposal_id" value
+ * @method integer  getServiceId()   Returns the current record's "service_id" value
+ * @method integer  getAmount()      Returns the current record's "amount" value
+ * @method decimal  getUnitCost()    Returns the current record's "unit_cost" value
+ * @method string   getComments()    Returns the current record's "comments" value
+ * @method Proposal getProposal()    Returns the current record's "Proposal" value
+ * @method Service  getService()     Returns the current record's "Service" value
+ * @method Item     setId()          Sets the current record's "id" value
+ * @method Item     setProposalId()  Sets the current record's "proposal_id" value
+ * @method Item     setServiceId()   Sets the current record's "service_id" value
+ * @method Item     setAmount()      Sets the current record's "amount" value
+ * @method Item     setUnitCost()    Sets the current record's "unit_cost" value
+ * @method Item     setComments()    Sets the current record's "comments" value
+ * @method Item     setProposal()    Sets the current record's "Proposal" value
+ * @method Item     setService()     Sets the current record's "Service" value
  * 
  * @package    limbo
  * @subpackage model
@@ -78,10 +78,9 @@ abstract class BaseItem extends sfDoctrineRecord
              'local' => 'proposal_id',
              'foreign' => 'id'));
 
-        $this->hasMany('Service as Services', array(
-             'refClass' => 'ServiceItem',
+        $this->hasOne('Service', array(
              'local' => 'service_id',
-             'foreign' => 'item_id'));
+             'foreign' => 'id'));
 
         $timestampable0 = new Doctrine_Template_Timestampable(array(
              ));

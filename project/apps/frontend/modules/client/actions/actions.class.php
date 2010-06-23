@@ -13,4 +13,7 @@ require_once dirname(__FILE__).'/../lib/clientGeneratorHelper.class.php';
  */
 class clientActions extends autoClientActions
 {
+  public function executeListAddContact() {
+    $this->forward('contact', 'new');
+  }
 }

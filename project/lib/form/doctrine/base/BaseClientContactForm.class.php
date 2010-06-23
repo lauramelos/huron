@@ -30,6 +30,10 @@ abstract class BaseClientContactForm extends BaseFormDoctrine
       'updated_at' => new sfValidatorDateTime(),
     ));
 
+    $this->validatorSchema->setPostValidator(
+      new sfValidatorDoctrineUnique(array('model' => 'ClientContact', 'column' => array('profile_id')))
+    );
+
     $this->widgetSchema->setNameFormat('client_contact[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);

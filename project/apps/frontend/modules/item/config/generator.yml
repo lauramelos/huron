@@ -1,25 +1,20 @@
 generator:
   class: sfDoctrineGenerator
   param:
-    model_class:           Client
+    model_class:           Item
     theme:                 mooDoo.2
     non_verbose_templates: true
     with_show:             false
     singular:              ~
     plural:                ~
-    route_prefix:          client
+    route_prefix:          item
     with_doctrine_route:   true
     actions_base_class:    sfActions
 
     config:
       actions: ~
       fields:  ~
-      list:
-        display:                [ name, address, phone, created_at]
-        object_actions:
-          addContact:           {label: "Agregar contacto" }
-          _delete:                  ~
-          _edit:                    ~
+      list:    ~
       filter:  ~
       form:    ~
       edit:    ~

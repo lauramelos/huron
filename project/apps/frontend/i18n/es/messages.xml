@@ -116,6 +116,58 @@
         <source>replacement</source>
         <target>Repuestos</target>
       </trans-unit>
+      <trans-unit id="27">
+        <source>Contacts list</source>
+        <target>Listado de contactos</target>
+      </trans-unit>
+      <trans-unit id="28">
+        <source>Measurement unit</source>
+        <target>Unidad de Medida</target>
+      </trans-unit>
+      <trans-unit id="29">
+        <source>Type</source>
+        <target>Tipo</target>
+      </trans-unit>
+      <trans-unit id="30">
+        <source>Items list</source>
+        <target>Listado de ítems</target>
+      </trans-unit>
+      <trans-unit id="31">
+        <source>Unit cost</source>
+        <target>Costo unitario</target>
+      </trans-unit>
+      <trans-unit id="32">
+        <source>Service List</source>
+        <target>Listado de Servicios</target>
+      </trans-unit>
+      <trans-unit id="33">
+        <source>Edit Client</source>
+        <target>Modificar Cliente</target>
+      </trans-unit>
+      <trans-unit id="34">
+        <source>Contact List</source>
+        <target>Listado de contactos</target>
+      </trans-unit>
+      <trans-unit id="35">
+        <source>New Contact</source>
+        <target>Contacto Nuevo</target>
+      </trans-unit>
+      <trans-unit id="36">
+        <source>Edit Contact</source>
+        <target>Modificar Contacto</target>
+      </trans-unit>
+      <trans-unit id="37">
+        <source>Position</source>
+        <target>Cargo</target>
+      </trans-unit>
+      <trans-unit id="38">
+        <source>Edit Service</source>
+        <target>Modificar Servicio</target>
+      </trans-unit>
+      <trans-unit id="39">
+        <source>Edit Proposal</source>
+        <target>Modificar Propuesta</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
