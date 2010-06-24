@@ -28,7 +28,6 @@ abstract class BaseProfileFormFilter extends BaseFormFilterDoctrine
       'locality_id'       => new sfWidgetFormFilterInput(),
       'created_at'        => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'updated_at'        => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
-      'client_list'       => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Client')),
     ));
 
     $this->setValidators(array(
@@ -47,7 +46,6 @@ abstract class BaseProfileFormFilter extends BaseFormFilterDoctrine
       'locality_id'       => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'created_at'        => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'updated_at'        => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
-      'client_list'       => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Client', 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('profile_filters[%s]');
@@ -57,24 +55,6 @@ abstract class BaseProfileFormFilter extends BaseFormFilterDoctrine
     $this->setupInheritance();
 
     parent::setup();
-  }
-
-  public function addClientListColumnQuery(Doctrine_Query $query, $field, $values)
-  {
-    if (!is_array($values))
-    {
-      $values = array($values);
-    }
-
-    if (!count($values))
-    {
-      return;
-    }
-
-    $query
-      ->leftJoin($query->getRootAlias().'.ClientContact ClientContact')
-      ->andWhereIn('ClientContact.profile_id', $values)
-    ;
   }
 
   public function getModelName()
@@ -101,7 +81,6 @@ abstract class BaseProfileFormFilter extends BaseFormFilterDoctrine
       'locality_id'       => 'Number',
       'created_at'        => 'Date',
       'updated_at'        => 'Date',
-      'client_list'       => 'ManyKey',
     );
   }
 }

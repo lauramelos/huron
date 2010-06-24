@@ -20,40 +20,37 @@
  * @property string $address_2
  * @property integer $locality_id
  * @property sfGuardUser $sfGuardUser
- * @property Doctrine_Collection $Client
  * 
- * @method integer             getId()                Returns the current record's "id" value
- * @method integer             getSfGuardUserId()     Returns the current record's "sf_guard_user_id" value
- * @method integer             getMembershipNumber()  Returns the current record's "membership_number" value
- * @method string              getFirstName()         Returns the current record's "first_name" value
- * @method string              getLastName()          Returns the current record's "last_name" value
- * @method date                getBirthDate()         Returns the current record's "birth_date" value
- * @method enum                getDocummentType()     Returns the current record's "documment_type" value
- * @method string              getDocummentNumber()   Returns the current record's "documment_number" value
- * @method string              getPhone()             Returns the current record's "phone" value
- * @method string              getMovil()             Returns the current record's "movil" value
- * @method string              getEmail()             Returns the current record's "email" value
- * @method string              getAddress()           Returns the current record's "address" value
- * @method string              getAddress2()          Returns the current record's "address_2" value
- * @method integer             getLocalityId()        Returns the current record's "locality_id" value
- * @method sfGuardUser         getSfGuardUser()       Returns the current record's "sfGuardUser" value
- * @method Doctrine_Collection getClient()            Returns the current record's "Client" collection
- * @method Profile             setId()                Sets the current record's "id" value
- * @method Profile             setSfGuardUserId()     Sets the current record's "sf_guard_user_id" value
- * @method Profile             setMembershipNumber()  Sets the current record's "membership_number" value
- * @method Profile             setFirstName()         Sets the current record's "first_name" value
- * @method Profile             setLastName()          Sets the current record's "last_name" value
- * @method Profile             setBirthDate()         Sets the current record's "birth_date" value
- * @method Profile             setDocummentType()     Sets the current record's "documment_type" value
- * @method Profile             setDocummentNumber()   Sets the current record's "documment_number" value
- * @method Profile             setPhone()             Sets the current record's "phone" value
- * @method Profile             setMovil()             Sets the current record's "movil" value
- * @method Profile             setEmail()             Sets the current record's "email" value
- * @method Profile             setAddress()           Sets the current record's "address" value
- * @method Profile             setAddress2()          Sets the current record's "address_2" value
- * @method Profile             setLocalityId()        Sets the current record's "locality_id" value
- * @method Profile             setSfGuardUser()       Sets the current record's "sfGuardUser" value
- * @method Profile             setClient()            Sets the current record's "Client" collection
+ * @method integer     getId()                Returns the current record's "id" value
+ * @method integer     getSfGuardUserId()     Returns the current record's "sf_guard_user_id" value
+ * @method integer     getMembershipNumber()  Returns the current record's "membership_number" value
+ * @method string      getFirstName()         Returns the current record's "first_name" value
+ * @method string      getLastName()          Returns the current record's "last_name" value
+ * @method date        getBirthDate()         Returns the current record's "birth_date" value
+ * @method enum        getDocummentType()     Returns the current record's "documment_type" value
+ * @method string      getDocummentNumber()   Returns the current record's "documment_number" value
+ * @method string      getPhone()             Returns the current record's "phone" value
+ * @method string      getMovil()             Returns the current record's "movil" value
+ * @method string      getEmail()             Returns the current record's "email" value
+ * @method string      getAddress()           Returns the current record's "address" value
+ * @method string      getAddress2()          Returns the current record's "address_2" value
+ * @method integer     getLocalityId()        Returns the current record's "locality_id" value
+ * @method sfGuardUser getSfGuardUser()       Returns the current record's "sfGuardUser" value
+ * @method Profile     setId()                Sets the current record's "id" value
+ * @method Profile     setSfGuardUserId()     Sets the current record's "sf_guard_user_id" value
+ * @method Profile     setMembershipNumber()  Sets the current record's "membership_number" value
+ * @method Profile     setFirstName()         Sets the current record's "first_name" value
+ * @method Profile     setLastName()          Sets the current record's "last_name" value
+ * @method Profile     setBirthDate()         Sets the current record's "birth_date" value
+ * @method Profile     setDocummentType()     Sets the current record's "documment_type" value
+ * @method Profile     setDocummentNumber()   Sets the current record's "documment_number" value
+ * @method Profile     setPhone()             Sets the current record's "phone" value
+ * @method Profile     setMovil()             Sets the current record's "movil" value
+ * @method Profile     setEmail()             Sets the current record's "email" value
+ * @method Profile     setAddress()           Sets the current record's "address" value
+ * @method Profile     setAddress2()          Sets the current record's "address_2" value
+ * @method Profile     setLocalityId()        Sets the current record's "locality_id" value
+ * @method Profile     setSfGuardUser()       Sets the current record's "sfGuardUser" value
  * 
  * @package    limbo
  * @subpackage model
@@ -141,11 +138,6 @@ abstract class BaseProfile extends sfDoctrineRecord
              'local' => 'sf_guard_user_id',
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));
-
-        $this->hasMany('Client', array(
-             'refClass' => 'ClientContact',
-             'local' => 'client_id',
-             'foreign' => 'profile_id'));
 
         $timestampable0 = new Doctrine_Template_Timestampable(array(
              ));

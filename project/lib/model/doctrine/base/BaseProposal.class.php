@@ -74,9 +74,9 @@ abstract class BaseProposal extends sfDoctrineRecord
              'type' => 'string',
              'length' => 1000,
              ));
-        $this->hasColumn('currency', 'string', 20, array(
+        $this->hasColumn('currency', 'string', 255, array(
              'type' => 'string',
-             'length' => 20,
+             'length' => 255,
              ));
         $this->hasColumn('delivery', 'string', 255, array(
              'type' => 'string',

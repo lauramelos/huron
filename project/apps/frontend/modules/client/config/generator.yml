@@ -17,10 +17,21 @@ generator:
       list:
         display:                [ name, address, phone, created_at]
         object_actions:
-          addContact:           {label: "Agregar contacto" }
+          addContact:           {label: "Agregar contacto", action: addContact }
           _delete:                  ~
           _edit:                    ~
+        fields:
+          created_at:           { date_format: 'dd-MM-yyyy', label: "Fecha" }
       filter:  ~
       form:    ~
-      edit:    ~
-      new:     ~
+      edit:
+        actions:
+          _list:                  { label: '&nbsp;', atts: {title: Back to list } }
+          _delete:                { label: '&nbsp;', atts: {title: Delete } }
+          _save:                  { label: '&nbsp;', atts: {title: Save } }
+      new:
+        actions:
+          _list:                  { label: '&nbsp;', atts: {title: Back to list } }
+          _save:                  { label: '&nbsp;', atts: {title: Save } }
+          _save_and_add:          { label: '&nbsp;', atts: {title: Save and add } }
+   

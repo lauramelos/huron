@@ -26,6 +26,7 @@ Profile:
   relations:
     sfGuardUser:                { local: sf_guard_user_id, foreign: id, foreignType: one, onDelete: CASCADE}
 
+
 Client:
   actAs:
     - Timestampable
@@ -38,7 +39,7 @@ Client:
     cuit:                       { type: string(13) }
     logo:                       { type: string(255) }
   relations:
-    Contacts:                   { class: Profile, local: profile_id, foreign: client_id, refClass: ClientContact, type: many  }
+    Contacts:                   { class: ClientContact, local: id, foreign: client_id, type: many, alias: Contacts  }
     Proposals:                  { class: Proposal, local: id, foreign: client_id, type: many }
 
 ClientContact:
@@ -46,9 +47,20 @@ ClientContact:
     - Timestampable
   tableName:                    client_contact
   columns:
-    profile_id:                 { type: integer, primary: true, unique: true }
-    client_id:                  { type: integer, primary: true }
-    position:                   { type: string(40) }
+    id:                         { type: integer, primary: true, autoincrement: true }
+    client_id:                  { type: integer }
+    first_name:                 { type: string(100), notnull: true}
+    last_name:                  { type: string(100), notnull: true}
+    position:                   { type: string(40)}
+    phone:                      { type: string(40)}
+    movil:                      { type: string(40)}
+    email:                      { type: string(60)}
+    address:                    { type: string(100)}
+    address_2:                  { type: string(100)}
+    locality_id:                { type: integer}
+  relations:
+    Clients:                    {local: client_id, foreign: id}
+    
 
 Proposal:
   actAs:
@@ -61,7 +73,7 @@ Proposal:
     description:                { type: clob }
     number:                     { type: integer }
     comments:                   { type: string(1000) }
-    currency:                   { type: string(20) }
+    currency:                   { type: string(255) }
     delivery:                   { type: string(255) }
     bid_validity:               { type: string(255) }
     payment_term:               { type: string(255) }

@@ -78,9 +78,8 @@ abstract class BaseClient extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
-        $this->hasMany('Profile as Contacts', array(
-             'refClass' => 'ClientContact',
-             'local' => 'profile_id',
+        $this->hasMany('ClientContact as Contacts', array(
+             'local' => 'id',
              'foreign' => 'client_id'));
 
         $this->hasMany('Proposal as Proposals', array(

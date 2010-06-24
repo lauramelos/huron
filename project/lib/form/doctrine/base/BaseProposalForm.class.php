@@ -36,7 +36,7 @@ abstract class BaseProposalForm extends BaseFormDoctrine
       'description'  => new sfValidatorString(array('required' => false)),
       'number'       => new sfValidatorInteger(array('required' => false)),
       'comments'     => new sfValidatorString(array('max_length' => 1000, 'required' => false)),
-      'currency'     => new sfValidatorString(array('max_length' => 20, 'required' => false)),
+      'currency'     => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'delivery'     => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'bid_validity' => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'payment_term' => new sfValidatorString(array('max_length' => 255, 'required' => false)),
