@@ -168,6 +168,10 @@
         <source>Edit Proposal</source>
         <target>Modificar Propuesta</target>
       </trans-unit>
+      <trans-unit id="40">
+        <source>Delete</source>
+        <target>Borrar</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

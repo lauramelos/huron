@@ -10,7 +10,6 @@
  */
 class ClientForm extends BaseClientForm
 {
-
   protected $scheduledForDeletion = array();
 
   public function configure()
@@ -20,16 +19,13 @@ class ClientForm extends BaseClientForm
     $newContact = new ClientContactForm();
     $newContact->setDefault('client_id', $this->object->id);
     $this->embedForm('new', $newContact);
-    /*$newContact->Client = $this->getObject();
-    $form = new ContactProfileForm($newContact);
-    $this->embedForm('newContact', $form );*/
- 
+
     $this->embedRelation('Contacts');
   }
 
  protected function doBind(array $values)
   {
-    if ('' === trim($values['new']['first_name']) && '' === trim($values['new']['last_name']))
+    if ($this->isValid() &&  '' === trim($values['new']['first_name']) && '' === trim($values['new']['last_name']))
     {
       unset($values['new'], $this['new']);
     }

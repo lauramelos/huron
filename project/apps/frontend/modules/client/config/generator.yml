@@ -17,7 +17,7 @@ generator:
       list:
         display:                [ name, address, phone, created_at]
         object_actions:
-          addContact:           {label: "Agregar contacto", action: addContact }
+          #addContact:           {label: "Agregar contacto", action: addContact }
           _delete:                  ~
           _edit:                    ~
         fields:
