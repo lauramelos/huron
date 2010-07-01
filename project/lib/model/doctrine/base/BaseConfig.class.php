@@ -38,9 +38,9 @@ abstract class BaseConfig extends sfDoctrineRecord
              'type' => 'string',
              'length' => 20,
              ));
-        $this->hasColumn('value', 'string', 255, array(
+        $this->hasColumn('value', 'string', 1000, array(
              'type' => 'string',
-             'length' => 255,
+             'length' => 1000,
              ));
         $this->hasColumn('description', 'clob', null, array(
              'type' => 'clob',

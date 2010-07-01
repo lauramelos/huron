@@ -14,7 +14,8 @@ class ProjectConfiguration extends sfProjectConfiguration
       'sfLessPhpPlugin',
       'sfImageTransformPlugin',
       'sfDoctrineMooDooPlugin',
-      'sfMooDooGalleryPlugin'
+      'sfMooDooGalleryPlugin',
+      'sfTCPDFPlugin'
     );
   }
 }

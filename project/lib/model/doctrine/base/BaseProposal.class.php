@@ -107,7 +107,8 @@ abstract class BaseProposal extends sfDoctrineRecord
 
         $this->hasMany('Item as Items', array(
              'local' => 'id',
-             'foreign' => 'proposal_id'));
+             'foreign' => 'proposal_id',
+             'onDelete' => 'CASCADE'));
 
         $timestampable0 = new Doctrine_Template_Timestampable(array(
              ));

@@ -14,7 +14,15 @@ generator:
     config:
       actions: ~
       fields:  ~
-      list:    ~
+      list:
+        display:                [ name, value ,description, created_at, updated_at]
+        actions:
+          _new:                 { label: '&nbsp;', atts: {title: Add Config } }
+        batch_actions:
+          delete:
+        fields:
+          created_at:                 { date_format :'dd-MM-yyyy' }
+          updated_at:                 { date_format :'dd-MM-yyyy' }
       filter:  ~
       form:    ~
       edit:    ~

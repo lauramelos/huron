@@ -29,7 +29,10 @@ class ProposalForm extends BaseProposalForm
 
  protected function doBind(array $values)
   {
-    if ($this->isValid() &&  '' === trim($values['new']['service']) && '' === trim($values['new']['amount']))
+    if($this->isNew()){
+     unset($values['new'], $this['new']);
+    }
+    elseif ($this->isValid() &&  '' === trim($values['new']['service_id']) && '' === trim($values['new']['amount']))
     {
       unset($values['new'], $this['new']);
     }

@@ -39,7 +39,7 @@ all:
     # Enable the database manager
     use_database:           true
     
-    enabled_modules:        [default, sfMooDooGroup, sfMooDooUser, sfMooDooPermission, sfMooDooAuth, sfMooDooStyleGuide]
+    enabled_modules:        [default, sfMooDooGroup, sfMooDooUser, sfMooDooPermission, sfMooDooAuth, sfMooDooStyleGuide, sfTCPDF]
 
   .actions:
     login_module:           sfMooDooAuth

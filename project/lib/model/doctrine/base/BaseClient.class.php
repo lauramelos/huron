@@ -80,7 +80,8 @@ abstract class BaseClient extends sfDoctrineRecord
         parent::setUp();
         $this->hasMany('ClientContact as Contacts', array(
              'local' => 'id',
-             'foreign' => 'client_id'));
+             'foreign' => 'client_id',
+             'onDelete' => 'CASCADE'));
 
         $this->hasMany('Proposal as Proposals', array(
              'local' => 'id',

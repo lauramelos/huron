@@ -1,0 +1,176 @@
+Service:
+  Service_1:
+    description: 'Sacar polea impulsora, con extractor hidraulico en AIB Lufkin MII 912-365-168 y reemplazar cuplo partido por uno nuevo, montar polea y ajustar.'
+    unit_cost: '866.00'
+    measurement_unit: global
+    type: labor
+    created_at: '2010-07-01 10:49:46'
+    updated_at: '2010-07-01 10:49:46'
+  Service_2:
+    description: 'Cuplo nuevo.'
+    unit_cost: '1.00'
+    measurement_unit: unidad
+    type: replacement
+    created_at: '2010-07-01 10:50:18'
+    updated_at: '2010-07-01 11:40:06'
+Config:
+  Config_1:
+    name: lugar_origen
+    value: Mendoza
+    description: 'Este el el lugar desde donde se emiten las propuestas. '
+    created_at: '2010-07-01 11:46:44'
+    updated_at: '2010-07-01 11:46:44'
+  Config_2:
+    name: texto_cabecera
+    value: 'De nuestra mayor consideración, nos dirigimos a ustedes con el proposito de ofrecerles los trabajos /materiales que a continuación se detallan:'
+    description: 'Texto que aparece al inicio de la propuesta comencial'
+    created_at: '2010-07-01 11:54:32'
+    updated_at: '2010-07-01 11:54:32'
+  Config_3:
+    name: titulo_propuesta
+    value: 'Propuesta Comercial'
+    description: 'Título principal de la propuesta comercial'
+    created_at: '2010-07-01 12:02:47'
+    updated_at: '2010-07-01 12:02:47'
+  Config_4:
+    name: saludo_final
+    value: 'Atentamente,'
+    description: 'Saludo que aparece al final de la propuesta'
+    created_at: '2010-07-01 12:04:27'
+    updated_at: '2010-07-01 12:04:27'
+  Config_5:
+    name: remitente
+    value: "Anibal Salinas\r\nGVS Argentina S.A.\r\nCel: 154-549814"
+    description: 'Remitente de la propuesta'
+    created_at: '2010-07-01 12:04:54'
+    updated_at: '2010-07-01 12:16:13'
+  Config_6:
+    name: pie_izquierdo
+    value: "Dirección Administrativa:\r\nAvda. San Martin 1035 Piso 11 - Of. 49\r\nTel.: 0054-261-5246692 - Código Postal 5500\r\nMendoza Capital - Argentina\r\nCorreo: Info@gvsargentina.com"
+    description: 'Texto que se muestra en el pie de la propuesta a la izquierda. '
+    created_at: '2010-07-01 12:19:18'
+    updated_at: '2010-07-01 12:19:18'
+  Config_7:
+    name: pie_derecho
+    value: "Dirección de Base de Operaciones:\r\nLateral Este Acceso Sur, km. 23\r\nTel.: 0054-261-3509730\r\nCódigo Postal 5509"
+    description: 'Texto que se muestra en el pie de la propuesta a la derecha. '
+    created_at: '2010-07-01 12:20:43'
+    updated_at: '2010-07-01 12:21:18'
+sfGuardUser:
+  sfGuardUser_1:
+    username: admin
+    algorithm: sha1
+    password: admin
+    is_active: true
+    is_super_admin: true
+    last_login: '2010-07-01 12:26:56'
+    created_at: '2010-06-28 19:18:15'
+    updated_at: '2010-07-01 12:26:56'
+Proposal:
+  Proposal_1:
+    Client: Client_1
+    date: '2009-11-12 00:00:00'
+    description: 'Cambio de cuplo en polea impulsora AIB Lufkin MII 912-365-168 pozo T 71'
+    number: '130'
+    comments: ''
+    currency: 'Los precios señalados son en dolares estadounidences, netos y sin IVA'
+    delivery: '1 día a partir de la recepción de la Orden de Compra'
+    bid_validity: '30 días a partir de la fecha'
+    payment_term: '30 días fecha de factura'
+    created_at: '2010-06-29 16:12:14'
+    updated_at: '2010-07-01 11:39:17'
+ClientContact:
+  ClientContact_1:
+    Client: Client_1
+    first_name: Julio
+    last_name: Alvarez
+    position: ''
+    phone: ''
+    movil: ''
+    email: ''
+    address: ''
+    address_2: ''
+    locality_id: null
+    created_at: '2010-07-01 12:09:36'
+    updated_at: '2010-07-01 12:09:36'
+  ClientContact_2:
+    Client: Client_1
+    first_name: Guillermo
+    last_name: Díaz
+    position: ''
+    phone: ''
+    movil: ''
+    email: ''
+    address: ''
+    address_2: ''
+    locality_id: null
+    created_at: '2010-07-01 12:09:48'
+    updated_at: '2010-07-01 12:09:48'
+  ClientContact_3:
+    Client: Client_1
+    first_name: 'Raul '
+    last_name: Lahoz
+    position: ''
+    phone: ''
+    movil: ''
+    email: ''
+    address: ''
+    address_2: ''
+    locality_id: null
+    created_at: '2010-07-01 12:09:59'
+    updated_at: '2010-07-01 12:09:59'
+MGAlbumGallery:
+  MGAlbumGallery_1:
+    MGGallery: MGGallery_1
+    MGAlbum: MGAlbum_1
+  MGAlbumGallery_2:
+    MGGallery: MGGallery_2
+    MGAlbum: MGAlbum_2
+MGGallery:
+  MGGallery_1:
+    title: 'Summer 92'
+    description: 'Beach vacation'
+    created_at: '2010-06-28 19:18:15'
+    updated_at: '2010-06-28 19:18:15'
+  MGGallery_2:
+    title: 'Summer 92'
+    description: 'Beach vacation'
+    created_at: '2010-07-01 12:15:27'
+    updated_at: '2010-07-01 12:15:27'
+MGAlbum:
+  MGAlbum_1:
+    title: 'Family Album'
+    description: 'My familiar album'
+    created_at: '2010-06-28 19:18:16'
+    updated_at: '2010-06-28 19:18:16'
+  MGAlbum_2:
+    title: 'Family Album'
+    description: 'My familiar album'
+    created_at: '2010-07-01 12:15:27'
+    updated_at: '2010-07-01 12:15:27'
+Client:
+  Client_1:
+    name: 'Petrolera el Trebol S.A.'
+    address: ''
+    phone: ''
+    cuit: ''
+    logo: ''
+    created_at: '2010-06-28 19:18:55'
+    updated_at: '2010-06-28 19:18:55'
+Item:
+  Item_1:
+    Proposal: Proposal_1
+    Service: Service_1
+    amount: '1'
+    unit_cost: '866.00'
+    comments: ''
+    created_at: '2010-07-01 11:19:07'
+    updated_at: '2010-07-01 11:39:17'
+  Item_2:
+    Proposal: Proposal_1
+    Service: Service_2
+    amount: '1'
+    unit_cost: '0.00'
+    comments: 'Provisto por PETSA'
+    created_at: '2010-07-01 11:19:19'
+    updated_at: '2010-07-01 11:39:17'

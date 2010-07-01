@@ -17,15 +17,25 @@ class ClientForm extends BaseClientForm
     unset($this['created_at'], $this['updated_at'], $this['contacts_list']);
 
     $newContact = new ClientContactForm();
+    
     $newContact->setDefault('client_id', $this->object->id);
     $this->embedForm('new', $newContact);
 
-    $this->embedRelation('Contacts');
+
+     /*$newContact = new ClientContact();
+     $newContact->Client = $this->getObject();
+     $subForm =new ClientContactForm($newContact);
+     $this->embedForm('new', $subForm);*/
+
+      $this->embedRelation('Contacts');
   }
 
  protected function doBind(array $values)
   {
-    if ($this->isValid() &&  '' === trim($values['new']['first_name']) && '' === trim($values['new']['last_name']))
+   if($this->isNew()){
+     unset($values['new'], $this['new']);
+   }
+   elseif ( $this->isValid() && '' === trim($values['new']['first_name']) && '' === trim($values['new']['last_name'])&& '' === trim($values['new']['position']))
     {
       unset($values['new'], $this['new']);
     }
@@ -40,7 +50,7 @@ class ClientForm extends BaseClientForm
         }
       }
     }
-
+  
     parent::doBind($values);
   }
 

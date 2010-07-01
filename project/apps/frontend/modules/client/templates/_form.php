@@ -20,9 +20,7 @@
     <div><div><?php echo $form['cuit']->renderRow() ?></div></div>
     <div><div><?php echo $form['logo']->renderRow() ?></div></div>
 
-<?php if(isset ($form['new'])): ?>
-    <?php // echo $form['new']->renderError() ?>
-
+<?php if(!$form->isNew() && isset ($form['new'])): ?>
     <table class="subform">
       <caption>Contactos</caption>
       <tr>
@@ -59,7 +57,7 @@
         <td><?php echo $eForm['movil']->renderError() ?><?php echo $eForm['movil']->render() ?></td>
         <td><?php echo $eForm['email']->renderError() ?><?php echo $eForm['email']->render() ?></td>
         <td><?php echo $eForm['address']->renderError() ?><?php echo $eForm['address']->render() ?></td>
-        <td>      <?php echo $eForm['delete']->render() ?>
+        <td><?php echo $eForm['delete']->render() ?>
           <?php echo $eForm['delete']->renderError() ?>
           <?php echo $eForm['delete']->renderLabel(__('Delete')) ?></td>
 

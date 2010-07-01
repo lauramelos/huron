@@ -39,7 +39,7 @@ Client:
     cuit:                       { type: string(13) }
     logo:                       { type: string(255) }
   relations:
-    Contacts:                   { class: ClientContact, local: id, foreign: client_id, type: many, alias: Contacts  }
+    Contacts:                   { class: ClientContact, local: id, foreign: client_id, type: many, alias: Contacts, onDelete: CASCADE  }
     Proposals:                  { class: Proposal, local: id, foreign: client_id, type: many }
 
 ClientContact:
@@ -79,7 +79,7 @@ Proposal:
     payment_term:               { type: string(255) }
   relations:
     Client:                     { local: client_id, foreign: id }
-    Items:                      { class: Item, local: id, foreign: proposal_id, type: many }
+    Items:                      { class: Item, local: id, foreign: proposal_id, type: many , onDelete: CASCADE}
 
 Service:
   actAs:
@@ -117,6 +117,6 @@ Config:
   columns:
     id:                         { type: integer, primary: true, autoincrement: true }
     name:                       { type: string(20) }
-    value:                      { type: string(255) }
+    value:                      { type: string(1000) }
     description:                { type: clob }
     

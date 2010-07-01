@@ -23,38 +23,38 @@
  <div><div><?php echo $form['delivery']->renderRow() ?></div></div>
  <div><div><?php echo $form['bid_validity']->renderRow() ?></div></div>
  <div><div><?php echo $form['payment_term']->renderRow() ?></div></div>
-<?php if(isset ($form['new'])): ?>
+<?php if(!$form->isNew() && isset ($form['new'])): ?>
+
     <?php // echo $form['new']->renderError() ?>
 
     <table class="subform">
       <caption>Contactos</caption>
       <tr>
+        <th><?php echo $form['new']['service_id']->renderLabel() ?></th>
+        <th><?php echo $form['new']['comments']->renderLabel() ?></th>
         <th><?php echo $form['new']['amount']->renderLabel() ?></th>
         <th><?php echo $form['new']['unit_cost']->renderLabel() ?></th>
-        <th><?php echo $form['new']['comments']->renderLabel() ?></th>
-        <th><?php echo $form['new']['service_id']->renderLabel() ?></th>
-
+        <th></th>
       </tr>
       <tr>
         <?php echo $form['new']->renderHiddenFields(); ?>
-
-
+<?php //echo $form['new']->renderGlobalErrors(); ?>
+        <td><?php echo $form['new']['service_id']->renderError() ?><?php echo $form['new']['service_id']->render() ?></td>
+        <td><?php echo $form['new']['comments']->renderError() ?><?php echo $form['new']['comments']->render() ?></td>
         <td><?php echo $form['new']['amount']->renderError() ?><?php echo $form['new']['amount']->render() ?></td>
         <td><?php echo $form['new']['unit_cost']->renderError() ?><?php echo $form['new']['unit_cost']->render() ?></td>
-        <td><?php echo $form['new']['comments']->renderError() ?><?php echo $form['new']['comments']->render() ?></td>
-        <td><?php echo $form['new']['service_id']->renderError() ?><?php echo $form['new']['service_id']->render() ?></td>
+        
         <td> * <?php echo __('New') ?></td>
       </tr>
        <?php foreach ($form['Items'] as $i => $eForm): ?>
 
       <tr>
          <?php echo $eForm->renderHiddenFields() ?>
-
+        <td><?php echo $eForm['service_id']->renderError() ?><?php echo $eForm['service_id']->render() ?></td>
+        <td><?php echo $eForm['comments']->renderError() ?><?php echo $eForm['comments']->render() ?></td>
         <td><?php echo $eForm['amount']->renderError() ?><?php echo $eForm['amount']->render() ?></td>
         <td><?php echo $eForm['unit_cost']->renderError() ?><?php echo $eForm['unit_cost']->render() ?></td>
-        <td><?php echo $eForm['comments']->renderError() ?><?php echo $eForm['comments']->render() ?></td>
-        <td><?php echo $eForm['service_id']->renderError() ?><?php echo $eForm['service_id']->render() ?></td>
-                <td>      <?php echo $eForm['delete']->render() ?>
+        <td><?php echo $eForm['delete']->render() ?>
           <?php echo $eForm['delete']->renderError() ?>
           <?php echo $eForm['delete']->renderLabel(__('Delete')) ?></td>
 
