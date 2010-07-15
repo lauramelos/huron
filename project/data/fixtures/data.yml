@@ -46,10 +46,10 @@ Config:
     updated_at: '2010-07-01 12:16:13'
   Config_6:
     name: pie_izquierdo
-    value: "Dirección Administrativa:\r\nAvda. San Martin 1035 Piso 11 - Of. 49\r\nTel.: 0054-261-5246692 - Código Postal 5500\r\nMendoza Capital - Argentina\r\nCorreo: Info@gvsargentina.com"
+    value: "Dirección Administrativa:\r\nAvda. San Martin 1035 Piso 11 - Of. 49\r\nTel.: 0054-261-5246692 - Código Postal 5500\r\nMendoza Capital - Argentina\r\nCorreo: info@gvsargentina.com"
     description: 'Texto que se muestra en el pie de la propuesta a la izquierda. '
     created_at: '2010-07-01 12:19:18'
-    updated_at: '2010-07-01 12:19:18'
+    updated_at: '2010-07-14 13:24:15'
   Config_7:
     name: pie_derecho
     value: "Dirección de Base de Operaciones:\r\nLateral Este Acceso Sur, km. 23\r\nTel.: 0054-261-3509730\r\nCódigo Postal 5509"
@@ -59,13 +59,12 @@ Config:
 sfGuardUser:
   sfGuardUser_1:
     username: admin
-    algorithm: sha1
     password: admin
     is_active: true
     is_super_admin: true
-    last_login: '2010-07-01 12:26:56'
+    last_login: '2010-07-15 13:45:51'
     created_at: '2010-06-28 19:18:15'
-    updated_at: '2010-07-01 12:26:56'
+    updated_at: '2010-07-15 13:45:51'
 Proposal:
   Proposal_1:
     Client: Client_1
