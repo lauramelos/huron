@@ -196,6 +196,10 @@
         <source>Edit Config</source>
         <target>Modificar Configuración</target>
       </trans-unit>
+      <trans-unit id="47">
+        <source>Print report</source>
+        <target>Imprimir Reporte</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
