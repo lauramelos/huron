@@ -21,6 +21,11 @@ generator:
           delete:
         fields:
           date:                 { date_format :'dd-MM-yyyy' }
+        object_actions:
+          _edit:                ~
+          _delete:              ~
+          print:                { label: 'Print report' }
+
       filter:  ~
       form:    ~
       edit:    ~

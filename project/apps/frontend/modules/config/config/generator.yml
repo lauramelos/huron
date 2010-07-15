@@ -15,7 +15,7 @@ generator:
       actions: ~
       fields:  ~
       list:
-        display:                [ name, value ,description, created_at, updated_at]
+        display:                [ id, name, value ,description, created_at, updated_at]
         actions:
           _new:                 { label: '&nbsp;', atts: {title: Add Config } }
         batch_actions:
